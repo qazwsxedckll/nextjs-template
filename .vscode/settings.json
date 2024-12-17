@@ -1,0 +1,5 @@
+{
+    "playwright.env": {
+        "DATABASE_URL": "postgresql://postgres:mypassword@localhost:5432/nextjs_template_test",
+    }
+}
