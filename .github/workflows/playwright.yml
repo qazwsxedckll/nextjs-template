@@ -6,7 +6,7 @@ on:
     branches: [ main, master ]
 jobs:
   test:
-    timeout-minutes: 60
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: bun install
     - name: Setup database
-      run: prisma db migrate deploy
+      run: bunx prisma db migrate deploy
     - name: Install Playwright Browsers
       run: bunx playwright install --with-deps
     - name: Run Playwright tests
