@@ -4,7 +4,6 @@ import {
   SidebarGroup,
   SidebarHeader,
   SidebarMenu,
-  SidebarRail,
 } from "@/components/ui/sidebar";
 import { Links, Title } from "./nav-links";
 
@@ -23,7 +22,6 @@ export function AppSidebar() {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarRail />
     </Sidebar>
   );
 }
