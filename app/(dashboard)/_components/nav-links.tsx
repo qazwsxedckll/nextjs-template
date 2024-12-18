@@ -15,6 +15,11 @@ const items = [
     url: "/home",
     icon: Home,
   },
+  {
+    title: "Payments",
+    url: "/payments",
+    icon: Home,
+  },
 ];
 
 export function Title() {
