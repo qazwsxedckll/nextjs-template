@@ -2,13 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { useActionState } from "react";
-import { logoutAction } from "./actions";
+import { logoutAction } from "../_actions/logout";
 
 export function LogoutButton() {
   const [, action, isPending] = useActionState(logoutAction, undefined);
   return (
     <form action={action}>
-      <Button disabled={isPending}>Logout</Button>
+      <Button disabled={isPending} variant={"link"}>
+        Logout
+      </Button>
     </form>
   );
 }
