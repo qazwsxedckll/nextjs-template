@@ -8,9 +8,7 @@ export function LogoutButton() {
   const [, action, isPending] = useActionState(logoutAction, undefined);
   return (
     <form action={action}>
-      <Button disabled={isPending} variant={"link"}>
-        Logout
-      </Button>
+      <Button disabled={isPending}>Logout</Button>
     </form>
   );
 }
