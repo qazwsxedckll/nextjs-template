@@ -1,3 +1,4 @@
+import { env } from "@/env.js";
 import { generateRandomOTP } from "@/lib/auth/utils";
 import { cookies } from "next/headers";
 import prisma from "../db/db";
@@ -71,7 +72,7 @@ export async function setEmailVerificationRequestCookie(
   (await cookies()).set("email_verification", request.id, {
     httpOnly: true,
     path: "/",
-    secure: process.env.NODE_ENV === "production",
+    secure: env.NODE_ENV === "production",
     sameSite: "lax",
     expires: request.expiresAt,
   });
@@ -81,7 +82,7 @@ export async function deleteEmailVerificationRequestCookie() {
   (await cookies()).set("email_verification", "", {
     httpOnly: true,
     path: "/",
-    secure: process.env.NODE_ENV === "production",
+    secure: env.NODE_ENV === "production",
     sameSite: "lax",
     maxAge: 0,
   });

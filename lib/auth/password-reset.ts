@@ -1,3 +1,4 @@
+import { env } from "@/env.js";
 import { sha256 } from "@oslojs/crypto/sha2";
 import { encodeHexLowerCase } from "@oslojs/encoding";
 import { cookies } from "next/headers";
@@ -122,7 +123,7 @@ export async function setPasswordResetSessionTokenCookie(
     sameSite: "lax",
     httpOnly: true,
     path: "/",
-    secure: process.env.NODE_ENV === "production",
+    secure: env.NODE_ENV === "production",
   });
 }
 
@@ -132,7 +133,7 @@ export async function deletePasswordResetSessionTokenCookie(): Promise<void> {
     sameSite: "lax",
     httpOnly: true,
     path: "/",
-    secure: process.env.NODE_ENV === "production",
+    secure: env.NODE_ENV === "production",
   });
 }
 

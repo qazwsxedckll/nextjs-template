@@ -1,3 +1,4 @@
+import { env } from "@/env.js";
 import { sha256 } from "@oslojs/crypto/sha2";
 import {
   encodeBase32LowerCaseNoPadding,
@@ -108,7 +109,7 @@ export async function setSessionTokenCookie(
   cookieStore.set("session", token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: env.NODE_ENV === "production",
     expires: expiresAt,
     path: "/",
   });
@@ -119,7 +120,7 @@ export async function deleteSessionTokenCookie(): Promise<void> {
   cookieStore.set("session", "", {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: env.NODE_ENV === "production",
     maxAge: 0,
     path: "/",
   });
